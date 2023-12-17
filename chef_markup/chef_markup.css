@@ -7,4 +7,9 @@ body {
 .header {
     text-transform: uppercase;
     overflow: hidden;
+    display: inline-flex;
+}
+
+a {
+    color: white;
 }
