@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    color: white; 
+}
+
+.header {
+    text-transform: uppercase;
+    overflow: hidden;
+}
