@@ -8,8 +8,21 @@ body {
     text-transform: uppercase;
     overflow: hidden;
     display: inline-flex;
+    background-color: black;
 }
 
 a {
     color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    background: linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%);
+}
+
+button {
+    color: black;
+    padding: 2em;
+    border-radius: 50%;
 }
