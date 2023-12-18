@@ -31,3 +31,8 @@ button {
     padding: 2em;
     border-radius: 50%;
 }
+
+i {
+    border-radius: 50%;
+    width: 1em;
+}
