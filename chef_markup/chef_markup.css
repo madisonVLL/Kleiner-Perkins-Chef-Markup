@@ -4,16 +4,17 @@ body {
     color: white; 
 }
 
-.header {
+header {
     text-transform: uppercase;
     overflow: hidden;
     display: inline-flex;
     background-color: black;
-    column-gap: 2em;
+    position: fixed;
+    text-align: center;
 }
 
-#chef_logo {
-    padding-right: 10em;
+nav {
+    display: flex;
 }
 
 a {
@@ -29,10 +30,14 @@ a:hover {
 button {
     color: black;
     padding: 2em;
-    border-radius: 50%;
+    border-radius: 25%;
 }
 
 i {
     border-radius: 50%;
     width: 1em;
+}
+
+#chef_brand {
+    padding: 2em;
 }
