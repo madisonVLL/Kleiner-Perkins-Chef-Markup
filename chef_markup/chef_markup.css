@@ -24,7 +24,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    background: linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%);
+    text-decoration-color: linear-gradient(111.3deg, #9c27b0 9.6%, #00bcd4 93.6%);
 }
 
 button {
@@ -40,4 +40,12 @@ i {
 
 #chef_brand {
     padding: 2em;
+}
+
+#benefit_type {
+    width: fit-content;
+}
+
+#benefits {
+    display: flex;
 }
