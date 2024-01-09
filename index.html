@@ -1,51 +1,326 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Chef Markup</title>
-        <!--Link to Stylesheet-->
-        <link rel="stylesheet" href="chef_markup/chef_markup.css">
-        <!--Link to Script-->
-        <script src="chef_markup/chef_markup.js"></script>
-        <!--Link to JQuery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <!--Link to Font-->
-        <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:wght@300&display=swap" rel="stylesheet">
-        <!--Link to FontAwesome-->
-    </head>
-    <body>
-        <header>
-            <div id="chef_brand">
-                <a href="https://www.chefrobotics.ai/" id="chef_logo">Chef</a>
-            </div>
-            <nav>
-                <a href="https://www.chefrobotics.ai/">Home</a>
-                <a href="https://www.chefrobotics.ai/our-mission">Mission</a>
-                <a href="https://www.chefrobotics.ai/careers">Career</a>
-                <button><a href="mailto: sales@ChefRobotics.ai">GET A DEMO</a></button> 
-            </nav>
-        </header>
-            <h1>Truly Intelligent Food Automation</h1>
-            <h2>Chef leads transformation in food companies by increasing production volume with flexible robots and machine learning</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Title-->
+  <title>Chef Robotics</title>
+  <!--Link to JQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!--Link to Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <!--Link to FontAwesome-->
+  <script src="https://kit.fontawesome.com/b9cd24ea44.js" crossorigin="anonymous"></script>
+  <!--Link to Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      color: white;
+      font-family: 'Lato', sans-serif;
+      /*Instead of a plain background, I used a gradient color for the background, these are the same values found on the mission page*/
+      background-image: linear-gradient(90deg, rgb(65, 37, 65), rgb(60, 86, 91), rgb(30, 20, 30));
+      padding: 0%;
+      margin: 0%;
+    }
+    /*This is to look pretty similar to the header already on the Chef Robotics Website*/
+    header {
+      background-color: black;
+      color: white;
+      text-transform: uppercase;
+      padding: 1em;
+      margin-bottom: 3em;
+      text-align: center;
+    /*This ensures the header stays in the top of the page, no matter if scrolled up and down on site*/
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: stretch;
+      align-items: center;
+      font-size: larger;
+      font-weight: 300;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 0.65em;
+      margin: 0 0.65em;
+    }
+
+    nav a:hover {
+        /*When hovered upon, there is an underline which is the same color as the background*/
+        background-image: linear-gradient(90deg, rgb(255, 172, 236), rgb(210, 243, 255));
+        background-size: 100% 0.1em;
+        padding-bottom: -0.5em;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        transition: background-size 1s ease-in;
+    }
+
+    button {
+        border-radius: 25%;
+        background-color: white;
+        border: 0.25em solid white;
+        text-transform: uppercase;
+        border-radius: 10em;
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+        font-family: 'Lato', sans-serif;
+        font-size: 1em;
+    }
+
+    button:hover {
+        cursor: pointer;
+        border: 0.2em solid linear-gradient(rgb(255, 172, 236), rgb(210, 243, 255));
+        background-color: black;
+        color: white;
+    }
+
+    i {
+        /*ensured that there is a round circle as the background of icons*/
+      align-items: center;
+      background-color: #282828;
+      min-width: 1em;
+      border-radius: 50%;
+      vertical-align: middle;
+      padding: 0.75em;
+    }
+
+    h2, h3 {
+        font-size: x-large;
+    }
+
+    h4, h5, h6, h7, h8, h9 {
+        font-size: xx-large;
+        padding: -0.5em;
+    }
+
+    @keyframes fadeIn {
+        
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    #logo {
+        font-size: x-large;
+        font-weight: 500;
+        margin-right: auto;
+    }
+
+    #benefits {
+      width: 100%;
+      align-items: center;
+      display: inline-flex;
+    }
+
+    #chef_content {
+      position: auto;
+    }
+
+    .benefit_type {
+        /*creates the box of the benefits of chef robotics, this is the sizing without the additional information
+        recieved the boxes are hover on*/
+        color:#ffffff;
+        border-top: 0.1em solid #5c00dd;
+        background-color: #0d0d11;
+        float: left;
+        width: 20em;
+        height: 10em;
+        height: fit-content;
+        padding: 1em;
+        margin: 0.25em;
+        justify-content: center;
+        text-align: center;
+        font-weight: bolder;
+        box-sizing: border-box;
+        margin: 0.5em;
+    }
+
+    .benefit_explaination {
+      display: none;
+    }
+
+    .benefit_type:hover .benefit_explaination {
+        /*when boxes are hovered on, teh description of the benefit is shwon*/
+        text-align: justify;
+        display: block;
+        animation: fadeIn 2s;
+    }
+
+    .benefit_type:hover {
+        /*when boxes are hovered on, the height of the box changes to fit 
+        the height of the description and the name of the benefit*/
+        height: fit-content;
+        text-align: center;
+        animation: ease-in 2s;
+    }
+
+    #moreMissionInfo{
+        text-align: center;
+    }
+    #moreMissionInfo a{
+        color: black;
+    }
+
+    #moreMissionInfo a:hover{
+        color: white;
+    }
+
+    .loadMoreIcon {
+        /*id for a larger, circular button with an icon in it*/
+        align-items: center;
+        background-image: linear-gradient(rgb(65, 37, 65), rgb(60, 86, 91), rgb(30, 20, 30));
+        min-width: 2em;
+        border-radius: 50%;
+        vertical-align: middle;
+        padding: 0.75em;
+        margin: 2em;
+    }
+
+    .loadMoreIcon i {
+        /*unlike the other icons in the benefits, this icon is larger and has a different background color within this id*/
+        align-items: center;
+        font-size: larger;
+        width: fit-content;
+        background-color: #ffffff;
+    }
+
+    .loadMoreIcon i:hover {
+        font-size: xx-large;
+        color: black;
+    }
+
+    #chefStat {
+        /*to better highlight the impact that chef robotics have made in resturant labor,
+        I chose to color this stat with a gradient which stands out against the black background*/
+        font-size: 3em; background: 
+        -webkit-linear-gradient(90deg, #00f2ff, #fffb1a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    #laborStats {
+        /*using a grid, we are able to display the statistics in two rows*/
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 3em;
+        background-color: #0d0d11;
+        border-top: 0.25em solid #5c00dd;
+        margin: 1em;
+        text-align: center;
+        font-size: 1em;
+        margin: 1em;
+        padding: 0.5em;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <!--The navigation bar links to real chef site-->
+    <div id="logo"><a href="https://www.chefrobotics.ai/">Chef</a></div>
+    <nav class="header_column">
+      <a href="https://www.chefrobotics.ai/">Home</a>
+      <a href="https://www.chefrobotics.ai/our-mission">Mission</a>
+      <a href="https://www.chefrobotics.ai/careers">Careers</a>
+      <button><a href="mailto:sales@ChefRobotics.ai">Get a demo</a></button>
+    </nav>
+  </header>
+  <div id="chef_content">
+    <h1>Truly Intelligent Food Automation</h1>
+    <h2>Chef leads transformation in food companies
+    by increasing production volume with flexible 
+    robots and machine learning</h2>
+    <br>
+    <div id="benefit_div">
+    <div id="benefits">
+        <!--Benefit explainations were not included in the original website, but I added them to clear up some of the ambiguity
+        present in Chef's mission in the original website, this content is hidden in usless a certain box is hovered over-->
+        <div class="benefit_type">
             <br>
-            <div id="benefits">
-                <div class="benefit_type">
-                    <i class="fa-thin fa-chart-line" style="color: #ffffff;"></i>
-                   <p>INCREASED VOLUME</p>
-                   <p class="benefit_explaination">With streamlined tasks, our robots can increase output of a variety of different dishes. With an higher output of meals produced in a shorter amount of time, you'll never have to worry about being able to supply the necessary meals to customers.</p>
-                </div>
-                <div class="benefit_type">
-                    <i class="fa-thin fa-brain" style="color: #ffffff;"></i>
-                    <p>FLEXIBLE AUTOMATION</p>
-                    <p class="benefit_explaination"></p>
-                </div>
-                <div class="benefit_type">
-                    <i class="fa-light fa-dollar-sign" style="color: #ffffff;"></i>
-                    <p>COST SAVINGS ON DAY 1</p>
-                </div>
-                <div class="benefit_type">
-                    <i class="fa-thin fa-heart" style="color: #ffffff;"></i>
-                    <p>INCREASE YIELD, WASTE LESS</p>
-                </div>
-            </div>
-    </body>
+            <i class="fa-solid fa-chart-line"></i>
+            <p>INCREASED VOLUME</p>
+            <p class="benefit_explaination">With streamlined tasks, 
+              our robots can increase output of a variety of different dishes. 
+              With an higher output of meals produced in a shorter amount of time, 
+              you'll never have to worry about being able to supply the necessary meals to customers.</p>
+        </div>
+        <div class="benefit_type">
+            <br>
+            <i class="fa-solid fa-brain" style="color: #ffffff;"></i>
+            <p>FLEXIBLE AUTOMATION</p>
+            <p class="benefit_explaination">Here at Chef, we adopt our robots to
+              create to meet our clients and resturants needs. Whether that be 
+              from slicing sushimi at the finest japanese resturants to 
+              assembling salads for a delicous fast casual establishment,
+              CHEF innovates for diverse dining environments.</p>
+        </div>
+        <div class="benefit_type">
+            <br>
+            <i class="fa-regular fa-dollar-sign" style="color: #ffffff;"></i>
+            <p>COST SAVINGS ON DAY 1</p>
+            <p class="benefit_explaination">Chef robots work effectively, 
+                minimizing food waste and
+               need to higher addtional employees to reduce risk of food 
+               shortages.</p>
+        </div>
+        <div class="benefit_type">
+            <br>
+            <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
+            <p>INCREASE YIELD, WASTE LESS</p>
+            <p class="benefit_explaination">Chef robots can dramatically reduce 
+              the time to prepare each meal, saving hours throughout the day. 
+              Also, as Chef Robots work effectively, they will greatly reduce 
+              food waste.</p>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div id="moreMissionInfo">
+        <!--Link to find out more about mission after recieveing more information about chef-->
+        <h3>Want to learn about why we do we do?</h3><button style="color: black"><a href="https://www.chefrobotics.ai/our-mission">Go To Our Mission Page</a></button>
+        <br>
+        <button class="loadMoreIcon"><i class="fa-solid fa-arrow-down" id="loadingStats" alt="load more information"></i></button>
+    </div>
+    <div id="stats">
+      <div id="laborStats">
+        <div style="font-size: larger;">
+            <h4>The Modern Labor Crisis</h4>
+            <p>Food companies are reeling with hiring and retention problems. 
+            The United States risks food shortages if we do not solve this labor crisis.</p>
+             <p>Traditional "hard" automation is not flexible enough to help — Chef
+            is changing that.</p>
+            <br>
+            <p><b>We've Already Produced</b><p>
+            <p id="chefStat"><b>9,248,976</b></p>
+            <p><b>servings, and we strive increase the number of meals everyday.</b></p>
+        </div>
+        <div>
+            <h5>Crisis By the Numbers<h5>
+            <p>917,000</p>
+            <p><em>Unfilled Jobs in US Food Prep</em></p>
+            <p>3.1 Million</p>
+            <p><em>Unfilled Jobs by 2030</em></p>
+            <p>81%</p>
+            <p><em>Annual Staff Turnover</em></p>
+        </div>
+    </div>
+    </div>
+  </div>
+</body>
+<script>
+    window.onload = (event) => {
+        //stats is hidden when website is loaded
+        $("#stats").hide();
+        $("#loadingStats").on("click",function() {
+            //when the loadingStats button is clicked on, then the stats is faded in and comes to view
+            $("#stats").fadeIn(3500)
+            $('body').scrollTo('#stats')
+        })
+        }
+</script>
 </html>
